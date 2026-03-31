@@ -167,7 +167,7 @@ const products = [
 // Categories
 const categories = [
     { name: "Women's Fashion", slug: "women", image: "https://raw.githubusercontent.com/sivadevireddy89-afk/KLNFashions/main/Images/gcpksslsaa0203__1.jpeg", count: 86 },
-    { name: "Kids' Fashion", slug: "kids", image: "https://raw.githubusercontent.com/sivadevireddy89-afk/KLNFashions/main/Images/", count: 124 },
+    { name: "Kids' Fashion", slug: "kids", image: "https://raw.githubusercontent.com/sivadevireddy89-afk/KLNFashions/main/Images/gcajbackw006-0-1m__2.jpeg", count: 124 },
     { name: "Accessories", slug: "accessories", image: "https://raw.githubusercontent.com/sivadevireddy89-afk/KLNFashions/main/Images/gcalocosta011134.jpeg", count: 45 },
     { name: "New Arrivals", slug: "all", image: "https://raw.githubusercontent.com/sivadevireddy89-afk/KLNFashions/main/Images/gcalocosta0111__1.jpeg", count: 255 }
 ];
