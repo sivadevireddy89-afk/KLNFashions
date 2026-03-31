@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLN Fashions - Elevate Your Drape</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="KLN Fashions" class="logo-img">
+                    <span class="logo-text">KLN Fashions</span>
+                </a>
+                
+                <nav class="nav">
+                    <div class="nav-item dropdown">
+                        <a href="#products" class="nav-link">Shop <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#products" class="dropdown-item" onclick="renderProducts('women')">
+                                <span class="dropdown-icon">👗</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Women's Fashion</span>
+                                    <span class="dropdown-desc">Sarees, Kurtas & More</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="renderProducts('kids')">
+                                <span class="dropdown-icon">👶</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Kids' Collection</span>
+                                    <span class="dropdown-desc">Ethnic & Casual Wear</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="renderProducts('accessories')">
+                                <span class="dropdown-icon">👜</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Accessories</span>
+                                    <span class="dropdown-desc">Bags, Jewelry & More</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('new')">
+                                <span class="dropdown-icon">✨</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">New Arrivals</span>
+                                    <span class="dropdown-desc">Fresh from our artisans</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('sale')">
+                                <span class="dropdown-icon">🏷️</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Sale</span>
+                                    <span class="dropdown-desc">Up to 50% off</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Collections <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('handpicked')">
+                                <span class="dropdown-icon">🌟</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Handpicked</span>
+                                    <span class="dropdown-desc">Curated favorites</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('traditional')">
+                                <span class="dropdown-icon">🪷</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Traditional</span>
+                                    <span class="dropdown-desc">Classic Indian wear</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('modern')">
+                                <span class="dropdown-icon">💫</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Modern Fusion</span>
+                                    <span class="dropdown-desc">Contemporary styles</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('festive')">
+                                <span class="dropdown-icon">🎊</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Festive Edit</span>
+                                    <span class="dropdown-desc">Celebration ready</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Occasions <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('wedding')">
+                                <span class="dropdown-icon">💍</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Weddings</span>
+                                    <span class="dropdown-desc">Bridal & guest wear</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('festivals')">
+                                <span class="dropdown-icon">🪔</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Festivals</span>
+                                    <span class="dropdown-desc">Diwali, Eid & more</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('casual')">
+                                <span class="dropdown-icon">🌸</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Daily Wear</span>
+                                    <span class="dropdown-desc">Comfortable & chic</span>
+                                </div>
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="filterByTag('party')">
+                                <span class="dropdown-icon">🎉</span>
+                                <div class="dropdown-content">
+                                    <span class="dropdown-title">Parties</span>
+                                    <span class="dropdown-desc">Evening & cocktail</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn-icon" id="searchBtn">🔍</button>
+                    <button class="btn-icon cart-btn" id="cartBtn">
+                        🛒
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="btn btn-primary btn-small">Sign In</button>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow" id="slideshow">
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide active" data-slide="0">
+                <div class="slide-bg">
+                    <img src="https://images.unsplash.com/photo-1603112155264-95b623720103?w=1920&h=1080&fit=crop" alt="Banarasi Saree Collection">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">New Collection</span>
+                    <h2 class="slide-title">Banarasi Silk Sarees</h2>
+                    <p class="slide-subtitle">Handwoven elegance for timeless beauty</p>
+                    <a href="#products" class="btn btn-primary btn-large" onclick="filterByTag('saree')">Shop Now</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide" data-slide="1">
+                <div class="slide-bg">
+                    <img src="https://images.unsplash.com/photo-1610030467081-8bb8a3d65d26?w=1920&h=1080&fit=crop" alt="Wedding Lehengas">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">Wedding Season</span>
+                    <h2 class="slide-title">Designer Lehengas</h2>
+                    <p class="slide-subtitle">Make your special day unforgettable</p>
+                    <a href="#products" class="btn btn-primary btn-large" onclick="filterByTag('wedding')">Explore Collection</a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide" data-slide="2">
+                <div class="slide-bg">
+                    <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1920&h=1080&fit=crop" alt="Kids Ethnic Wear">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">Kids Special</span>
+                    <h2 class="slide-title">Little Royals Collection</h2>
+                    <p class="slide-subtitle">Adorable ethnic wear for your little ones</p>
+                    <a href="#products" class="btn btn-primary btn-large" onclick="renderProducts('kids')">Shop Kids</a>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide" data-slide="3">
+                <div class="slide-bg">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920&h=1080&fit=crop" alt="Kurta Collection">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">Daily Wear</span>
+                    <h2 class="slide-title">Cotton Kurtas</h2>
+                    <p class="slide-subtitle">Comfort meets elegance for everyday style</p>
+                    <a href="#products" class="btn btn-primary btn-large" onclick="filterByTag('casual')">Shop Kurtas</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="slide-nav slide-prev" id="slidePrev">
+            <span>←</span>
+        </button>
+        <button class="slide-nav slide-next" id="slideNext">
+            <span>→</span>
+        </button>
+        
+        <!-- Navigation Dots -->
+        <div class="slide-dots" id="slideDots">
+            <button class="slide-dot active" data-slide="0"></button>
+            <button class="slide-dot" data-slide="1"></button>
+            <button class="slide-dot" data-slide="2"></button>
+            <button class="slide-dot" data-slide="3"></button>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <span class="mission-label">Our Mission</span>
+                <h2 class="mission-title">Celebrate Sustainable Fashion for Women & Kids</h2>
+                <p class="mission-text">KLN Fashions is dedicated to promoting ethical, sustainable fashion while empowering local artisans and communities. Every piece tells a story of craftsmanship, love, and care for our planet. Shop consciously, dress beautifully, and make a difference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🚚</span>
+                    <h3 class="feature-title">Express Shipping</h3>
+                    <p class="feature-desc">Ships in 24 hours</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🌿</span>
+                    <h3 class="feature-title">Sustainable</h3>
+                    <p class="feature-desc">Eco-friendly materials</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💖</span>
+                    <h3 class="feature-title">Loved by Many</h3>
+                    <p class="feature-desc">50,000+ happy customers</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title">Easy Returns</h3>
+                    <p class="feature-desc">60-day return policy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="shop-by" id="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="shop-by-grid" id="shopByCategory">
+                <!-- Categories injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Occasion -->
+    <section class="shop-by occasion-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Occasion</h2>
+            <div class="occasion-grid" id="shopByOccasion">
+                <a href="#products" class="occasion-card" onclick="filterByTag('casual')">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=500&fit=crop" alt="Casual Kurtas">
+                    <div class="occasion-overlay">
+                        <span class="occasion-name">Casual Kurtas</span>
+                    </div>
+                </a>
+                <a href="#products" class="occasion-card" onclick="filterByTag('party')">
+                    <img src="https://images.unsplash.com/photo-1603112155264-95b623720103?w=400&h=500&fit=crop" alt="Festive Sarees">
+                    <div class="occasion-overlay">
+                        <span class="occasion-name">Festive Sarees</span>
+                    </div>
+                </a>
+                <a href="#products" class="occasion-card" onclick="filterByTag('wedding')">
+                    <img src="https://images.unsplash.com/photo-1610030467081-8bb8a3d65d26?w=400&h=500&fit=crop" alt="Wedding Lehengas">
+                    <div class="occasion-overlay">
+                        <span class="occasion-name">Wedding Lehengas</span>
+                    </div>
+                </a>
+                <a href="#products" class="occasion-card" onclick="filterByTag('sleep')">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=500&fit=crop" alt="Ethnic Nightwear">
+                    <div class="occasion-overlay">
+                        <span class="occasion-name">Salwar Suits</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">#new</span>
+                    <h2 class="section-title">New at KLN Fashions</h2>
+                </div>
+                <a href="#products" class="btn btn-outline" onclick="filterByTag('new')">Explore All</a>
+            </div>
+            <div class="new-arrivals-grid" id="newArrivals">
+                <!-- New arrivals injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Slider -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">#style</span>
+                    <h2 class="section-title">Style Gallery</h2>
+                    <p class="section-subtitle">Real moments, real style - share your KLN look with #KLNStyle</p>
+                </div>
+                <div class="gallery-nav">
+                    <button class="gallery-btn prev" id="galleryPrev">←</button>
+                    <button class="gallery-btn next" id="galleryNext">→</button>
+                </div>
+            </div>
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Anarkali Style">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@priya_s</span>
+                        <span class="gallery-caption">Anarkali elegance ✨</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1603112155264-95b623720103?w=400&h=500&fit=crop" alt="Saree Drape">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@ananya_m</span>
+                        <span class="gallery-caption">Banarasi beauty 🌸</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=500&fit=crop" alt="Mom Daughter">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@meera_d</span>
+                        <span class="gallery-caption">Twinning lehengas 💕</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=500&fit=crop" alt="Kurta Style">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@shreya_k</span>
+                        <span class="gallery-caption">Office kurta chic 💼</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=500&fit=crop" alt="Chikankari">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@neha_r</span>
+                        <span class="gallery-caption">Lucknowi vibes 🌿</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1610030467081-8bb8a3d65d26?w=400&h=500&fit=crop" alt="Wedding Lehenga">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@divya_p</span>
+                        <span class="gallery-caption">Wedding ready 💐</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583391733958-2554edeb4632?w=400&h=500&fit=crop" alt="Salwar Suit">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@kavita_s</span>
+                        <span class="gallery-caption">Classic salwar 🌺</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=400&h=500&fit=crop" alt="Kids Lehenga">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">@ritika_m</span>
+                        <span class="gallery-caption">Little princess 🦋</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="products-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="women">Women</button>
+                    <button class="filter-btn" data-filter="kids">Kids</button>
+                    <button class="filter-btn" data-filter="accessories">Accessories</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items injected by JS -->
+        </div>
+        <div class="cart-empty" id="cartEmpty">
+            <span class="cart-empty-icon">🛒</span>
+            <p>Your cart is empty</p>
+            <button class="btn btn-primary" id="startShoppingBtn">Start Shopping</button>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-large btn-full" id="checkoutBtn">Proceed to Checkout</button>
+            <button class="btn btn-outline btn-small btn-full" id="clearCartBtn">Clear Cart</button>
+        </div>
+    </aside>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Product details injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal modal-large">
+            <button class="modal-close" id="checkoutClose">×</button>
+            <div class="modal-content">
+                <h2 class="checkout-title">Checkout</h2>
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-section">
+                        <h3>Contact Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required placeholder="your@email.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h3>Shipping Address</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group form-group-full">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" required placeholder="123 Main St">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required placeholder="New York">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" required placeholder="10001">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h3>Payment Information</h3>
+                        <div class="form-row">
+                            <div class="form-group form-group-full">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expDate">Expiration Date</label>
+                                <input type="text" id="expDate" required placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" required placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-summary">
+                        <div class="checkout-total">
+                            <span>Total:</span>
+                            <span id="checkoutTotal">$0.00</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-full">Complete Purchase</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toastMessage">Added to cart!</span>
+    </div>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <span class="story-label">Our Story</span>
+                    <h2 class="story-title">Handcrafted with Love, for Less than $100</h2>
+                    <p class="story-text">Every piece in our collection is thoughtfully designed and ethically made. We partner with local artisans and sustainable factories to bring you beautiful fashion that doesn't compromise on values.</p>
+                    <div class="story-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Artisan Partners</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Sustainable</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1603112155264-95b623720103?w=600&h=700&fit=crop" alt="Indian Artisan with Saree">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about our products or need help with your order? We're here to help!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong> support@klnfashions.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong> +91 8105964266
+                        </div>
+                        <div class="contact-item">
+                            <strong>Hours:</strong> Mon-Sat, 10AM - 8PM IST
+                        </div>
+                    </div>
+                </div>
+                <div class="whatsapp-container">
+                    <div class="whatsapp-card">
+                        <div class="whatsapp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.88 12.1L4 20l4.05-1.06A7.93 7.93 0 0 0 20 12a7.85 7.85 0 0 0-2.4-5.68zM12 18a5.92 5.92 0 0 1-3.2-.94l-.23-.14-2.4.63.64-2.35-.15-.24A5.93 5.93 0 0 1 6 12a6 6 0 0 1 12 0 5.93 5.93 0 0 1-6 6zm3.4-4.6c-.18-.1-1.07-.53-1.24-.59-.16-.06-.28-.1-.4.1-.12.18-.46.59-.56.7-.1.13-.2.14-.38.05-1.15-.58-1.9-1.03-2.66-2.33-.2-.34-.03-.52.15-.7.15-.15.34-.38.46-.57.1-.2.05-.36-.02-.5-.07-.14-.4-1.07-.55-1.46-.14-.37-.29-.32-.4-.33-.1 0-.22-.02-.34-.02s-.3.04-.46.22c-.16.18-.6.59-.6 1.43 0 .85.6 1.66.68 1.78.09.12 1.2 1.83 2.9 2.57 1.7.73 1.7.49 2 .46.3-.03 1.07-.43 1.22-.85.15-.42.15-.78.1-.85z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Chat on WhatsApp</h3>
+                        <p>Get instant replies to your questions about orders, products, or sizing!</p>
+                        <a href="https://wa.me/918105964266?text=Hi%20KLN%20Fashions!%20I%20have%20a%20question%20about%20your%20products." target="_blank" class="whatsapp-btn">
+                            <span>💬 Message Us</span>
+                        </a>
+                        <div class="whatsapp-status">
+                            <span class="status-dot"></span>
+                            <span>Usually replies within an hour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="logo.png" alt="KLN Fashions" class="logo-img">
+                        <span class="logo-text">KLN Fashions</span>
+                    </a>
+                    <p class="footer-desc">Beautiful fashion for women and kids. Sustainable, comfortable, and stylish for every moment.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="#">Women's Collection</a>
+                    <a href="#">Kids' Collection</a>
+                    <a href="#">Accessories</a>
+                    <a href="#">New Arrivals</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KLN Fashions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
